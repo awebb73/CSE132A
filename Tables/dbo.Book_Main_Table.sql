@@ -3,7 +3,7 @@ SET QUOTED_IDENTIFIER ON
 SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[Book_Main_Table] (
-		[ISBN]            [nchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[ISBN]            [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 		[title_name]      [nchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 		[author_name]     [nchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
 		[seller_id]       [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
@@ -13,10 +13,10 @@ CREATE TABLE [dbo].[Book_Main_Table] (
 GO
 ALTER TABLE [dbo].[Book_Main_Table]
 	WITH CHECK
-	ADD CONSTRAINT [FK_Book_Main_Table_Book_Info_Table]
+	ADD CONSTRAINT [FK_Book_Main_Table_Format_Table]
 	FOREIGN KEY ([format_id]) REFERENCES [dbo].[Format_Table] ([format_id])
 ALTER TABLE [dbo].[Book_Main_Table]
-	CHECK CONSTRAINT [FK_Book_Main_Table_Book_Info_Table]
+	CHECK CONSTRAINT [FK_Book_Main_Table_Format_Table]
 
 GO
 ALTER TABLE [dbo].[Book_Main_Table]

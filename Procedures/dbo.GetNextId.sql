@@ -6,7 +6,7 @@ GO
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE dbo.GetNextId
+CREATE PROCEDURE [dbo].[GetNextId]
 	@TableName varchar(256), 
 	@NextId int output
 AS
@@ -14,8 +14,6 @@ BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
-
-    select @NextId = -1;
 
 	select 
 		@NextId = next_id_value 
