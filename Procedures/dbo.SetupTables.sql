@@ -117,7 +117,6 @@ BEGIN
 			where
 				seller_name = @VAR_seller and Seller_Info_Table.distribution_id = Distribution_Table.distribution_id and 
 								Distribution_Table.dist = @VAR_distribution;
-			print @Var_correct_seller;
 			insert into Book_Main_Table values (@VAR_isbn, @VAR_book_title, @VAR_book_author, @VAR_correct_seller, @VAR_pub_id, @VAR_format_id)
 		end
 		FETCH NEXT FROM curse1 INTO @VAR_userID, @VAR_location, @VAR_age, @VAR_book_rating, @VAR_isbn, @VAR_book_title, @VAR_book_author,
