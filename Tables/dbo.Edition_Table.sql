@@ -5,7 +5,7 @@ GO
 CREATE TABLE [dbo].[Edition_Table] (
 		[edition_id]       [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 		[edition_type]     [nchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-		[language_id]      [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+		[language_id]      [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 		CONSTRAINT [PK_Edition_Table]
 		PRIMARY KEY
 		CLUSTERED
