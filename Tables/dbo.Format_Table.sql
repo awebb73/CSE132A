@@ -5,12 +5,30 @@ GO
 CREATE TABLE [dbo].[Format_Table] (
 		[format_id]       [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
 		[format_type]     [nchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
-		CONSTRAINT [PK_Format_Table]
+		[edition_id]      [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+		[pub_id]          [nchar](10) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+		CONSTRAINT [PK_Book_Info_Table]
 		PRIMARY KEY
 		CLUSTERED
 		([format_id])
 	ON [PRIMARY]
 ) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Format_Table]
+	WITH CHECK
+	ADD CONSTRAINT [FK_Book_Info_Table_Publisher_Table]
+	FOREIGN KEY ([pub_id]) REFERENCES [dbo].[Publisher_Table] ([pub_id])
+ALTER TABLE [dbo].[Format_Table]
+	CHECK CONSTRAINT [FK_Book_Info_Table_Publisher_Table]
+
+GO
+ALTER TABLE [dbo].[Format_Table]
+	WITH CHECK
+	ADD CONSTRAINT [FK_Format_Table_Edition_Table]
+	FOREIGN KEY ([edition_id]) REFERENCES [dbo].[Edition_Table] ([edition_id])
+ALTER TABLE [dbo].[Format_Table]
+	CHECK CONSTRAINT [FK_Format_Table_Edition_Table]
+
 GO
 ALTER TABLE [dbo].[Format_Table] SET (LOCK_ESCALATION = TABLE)
 GO
